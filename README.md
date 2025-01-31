@@ -9,12 +9,13 @@ Create a functional and efficient communication platform that replicates the ess
     <li><b>Text Channels for Group Communication</b>
         <ul>
             <li>Users can join a set of channels (e.g., "General," "Project Help," "Social").</li>
-            <li>Messages sent in a channel are visible to all users in that channel.</li>
+            <li>Messages sent within a channel are visible to all users.</li>
         </ul>
     </li>
     <li><b>Direct Messaging Between Users</b>
         <ul>
             <li>Users can join a predefined set of channels (e.g., "General," "Project Help," "Social").</li>
+            <li>Private conversations will only been seen by the two users </li>
         </ul>
     </li>
     <li><b>Role-Based User Permissions</b>
@@ -33,11 +34,12 @@ Create a functional and efficient communication platform that replicates the ess
 </ul><br>
 
 <b>Technologies & Tools</b><br>
-<ul>
-    <li>Laravel</li>
-  <li>Boostrap</li>
-  <li>MySQL</li>
-</ul><br>
+During our first meeting, we decided on an initial set of tools that we are comfortable and familiar with using, while ensuring they support our goals. 
+
+The main tool we will use is Laravel which will act as the backbone of our project. Laravel is a PHP web framework designed for large scalable websites. It allows to manage our frontend and backend while also allowing to choose a database of our choice. We will be mainly using HTML, CSS, Javascript for the front end and PHP for backend.
+
+For our database, we will use a MongoDB (NoSQL) which will be useful for handlings a large set of messages in our discord-like app. 
+Note: Tools are subject to change
 
 <b>Team members</b><br>
 <ul>
