@@ -42,7 +42,7 @@ For our database, we will use a MongoDB (NoSQL) which will be useful for handlin
 Note: Tools are subject to change
 
 <ul>
-    <li><b>List of all languages:<b/></li>
+    <b>List of all languages:<b/>
     <li>HTML</li>
     <li>CSS</li>
     <li>JavaScript</li>
