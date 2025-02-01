@@ -25,7 +25,7 @@ Create a functional and efficient communication platform that replicates the ess
             <li>Members can only send and view messages.</li>
         </ul>
     </li>
-    <li><b>Voice Channels for Group Communication (might change)</b>
+    <li><b>Voice Channels for Group Communication</b>
         <ul>
             <li>Users can join voice channels to have real-time audio conversations.</li>
             <li>Useful for meetings, gaming, or casual chats.</li>
