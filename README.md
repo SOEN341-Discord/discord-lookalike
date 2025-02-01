@@ -41,7 +41,7 @@ The main tool we will use is Laravel which will act as the backbone of our proje
 For our database, we will use a MongoDB (NoSQL) which will be useful for handlings a large set of messages in our discord-like app. 
 Note: Tools are subject to change
 
-<b>List of all languages:<b/>
+<b>List of all languages:</b>
 <ul>
     <li>HTML</li>
     <li>CSS</li>
