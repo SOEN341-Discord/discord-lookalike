@@ -3,7 +3,7 @@
 # Dependencies 
 # package.json and package-lock.json define the dependencies
 # hence why we don't need node modules on github
-/node_modules 
+#/node_modules 
 
 
 # misc
@@ -11,6 +11,9 @@
 
 npm-debug.log
 yarn-error.log
+
+#check the .env.example to know what to put in this file 
+.env 
 
 # /.phpunit.cache
 # /public/build
