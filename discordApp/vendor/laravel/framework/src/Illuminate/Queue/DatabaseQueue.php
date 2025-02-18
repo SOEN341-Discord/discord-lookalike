@@ -258,6 +258,14 @@ class DatabaseQueue extends Queue implements QueueContract, ClearableQueue
      */
     protected function getLockForPopping()
     {
+        if (!$this->database) {
+            throw new \Exception('Database connection is not initialized.');
+        }
+
+        if (!$this->database->getPdo()) {
+            throw new \Exception('Database PDO connection is null.');
+        }
+        
         $databaseEngine = $this->database->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME);
         $databaseVersion = $this->database->getConfig('version') ?? $this->database->getPdo()->getAttribute(PDO::ATTR_SERVER_VERSION);
 
