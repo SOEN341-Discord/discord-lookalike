@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'fd4905f9419832dac20e01bdded04a9d1d515e6e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -458,9 +458,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'fd4905f9419832dac20e01bdded04a9d1d515e6e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -615,6 +615,15 @@
             'replaced' => array(
                 0 => '^1.0',
             ),
+        ),
+        'munafio/chatify' => array(
+            'pretty_version' => 'v1.6.3',
+            'version' => '1.6.3.0',
+            'reference' => '559ff515fc83a822ed72cdd03ca8e36c574c5a25',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../munafio/chatify',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.13.0',

@@ -110,6 +110,7 @@ return array(
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Clue\\Redis\\Protocol\\' => array($vendorDir . '/clue/redis-protocol/src'),
     'Clue\\React\\Redis\\' => array($vendorDir . '/clue/redis-react/src'),
+    'Chatify\\' => array($vendorDir . '/munafio/chatify/src'),
     'Carbon\\Doctrine\\' => array($vendorDir . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
