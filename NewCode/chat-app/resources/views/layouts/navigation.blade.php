@@ -15,7 +15,7 @@
                     {{ __('Server') }}
                 </x-nav-link>
                 <!-- Private Messages Link -->
-                <x-nav-link :href="route('private_messages')" :active="request()->routeIs('private_messages')" class="block p-4 hover:bg-white-700 focus:outline-none">
+                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 hover:bg-white-700 focus:outline-none">
                     {{ __('Private Messages') }}
                 </x-nav-link>
             </div>

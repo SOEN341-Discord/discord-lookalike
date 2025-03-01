@@ -27,6 +27,8 @@ return array(
     'App\\Http\\Middleware\\AdminMiddleware' => $baseDir . '/app/Http/Middleware/AdminMiddleware.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
+    'App\\Models\\ChFavorite' => $baseDir . '/app/Models/ChFavorite.php',
+    'App\\Models\\ChMessage' => $baseDir . '/app/Models/ChMessage.php',
     'App\\Models\\Channel' => $baseDir . '/app/Models/Channel.php',
     'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
