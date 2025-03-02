@@ -38,25 +38,27 @@ jobs:
         tools: composer:v2
 
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      run: php -r "file_exists('NewCode/chat-app/.env') || copy('NewCode/chat-app/.env.example', 'NewCode/chat-app/.env');"
 
     - name: Configure Environment Variables
       run: |
-        echo "DB_CONNECTION=mysql" >> .env
-        echo "DB_HOST=127.0.0.1" >> .env
-        echo "DB_PORT=3306" >> .env
-        echo "DB_DATABASE=laravel_test" >> .env
-        echo "DB_USERNAME=test_user" >> .env
-        echo "DB_PASSWORD=test_password" >> .env
+        echo "DB_CONNECTION=mysql" >> NewCode/chat-app/.env
+        echo "DB_HOST=127.0.0.1" >> NewCode/chat-app/.env
+        echo "DB_PORT=3306" >> NewCode/chat-app/.env
+        echo "DB_DATABASE=laravel_test" >> NewCode/chat-app/.env
+        echo "DB_USERNAME=test_user" >> NewCode/chat-app/.env
+        echo "DB_PASSWORD=test_password" >> NewCode/chat-app/.env
 
     - name: Install Dependencies
-      run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      run: composer install --no-interaction --prefer-dist --optimize-autoloader --working-dir=NewCode/chat-app
 
     - name: Generate Application Key
       run: php artisan key:generate
+      working-directory: NewCode/chat-app
 
     - name: Fix Storage & Cache Permissions
       run: chmod -R ug+rwx storage bootstrap/cache
+      working-directory: NewCode/chat-app
 
     - name: Wait for MySQL to be Ready
       run: |
@@ -67,9 +69,12 @@ jobs:
 
     - name: Clear Configuration Cache
       run: php artisan config:clear
+      working-directory: NewCode/chat-app
 
     - name: Run Migrations & Seeders
       run: php artisan migrate --seed --force
+      working-directory: NewCode/chat-app
 
     - name: Run Laravel Tests
       run: php artisan test
+      working-directory: NewCode/chat-app
