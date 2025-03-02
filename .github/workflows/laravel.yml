@@ -1,0 +1,80 @@
+name: Laravel CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: laravel_test
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, exif, pcntl, bcmath, pdo, pdo_mysql
+        tools: composer:v2
+
+    - name: Copy .env
+      run: php -r "file_exists('NewCode/chat-app/.env') || copy('NewCode/chat-app/.env.example', 'NewCode/chat-app/.env');"
+
+    - name: Configure Environment Variables
+      run: |
+        echo "DB_CONNECTION=mysql" >> NewCode/chat-app/.env
+        echo "DB_HOST=127.0.0.1" >> NewCode/chat-app/.env
+        echo "DB_PORT=3306" >> NewCode/chat-app/.env
+        echo "DB_DATABASE=laravel_test" >> NewCode/chat-app/.env
+        echo "DB_USERNAME=test_user" >> NewCode/chat-app/.env
+        echo "DB_PASSWORD=test_password" >> NewCode/chat-app/.env
+
+    - name: Install Dependencies
+      run: composer install --no-interaction --prefer-dist --optimize-autoloader --working-dir=NewCode/chat-app
+
+    - name: Generate Application Key
+      run: php artisan key:generate
+      working-directory: NewCode/chat-app
+
+    - name: Fix Storage & Cache Permissions
+      run: chmod -R ug+rwx storage bootstrap/cache
+      working-directory: NewCode/chat-app
+
+    - name: Wait for MySQL to be Ready
+      run: |
+        until mysqladmin ping -h "127.0.0.1" --silent; do
+          echo "Waiting for MySQL to be ready..."
+          sleep 2
+        done
+
+    - name: Clear Configuration Cache
+      run: php artisan config:clear
+      working-directory: NewCode/chat-app
+
+    - name: Run Migrations & Seeders
+      run: php artisan migrate --seed --force
+      working-directory: NewCode/chat-app
+
+    - name: Run Laravel Tests
+      run: php artisan test
+      working-directory: NewCode/chat-app
